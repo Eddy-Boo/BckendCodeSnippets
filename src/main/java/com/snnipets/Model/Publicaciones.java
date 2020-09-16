@@ -5,6 +5,7 @@
  */
 package com.snnipets.Model;
 
+import java.util.List;
 import lombok.Data;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -17,4 +18,5 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Publicaciones {
     private String codigo;
     private String Descripcion;
+    private List<Categorias> categotias;
 }

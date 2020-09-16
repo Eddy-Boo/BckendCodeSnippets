@@ -5,6 +5,7 @@
  */
 package com.snnipets.Model;
 
+import java.util.List;
 import lombok.Data;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -20,4 +21,7 @@ public class Persona {
     private String edad;
     private String email;   
     private String pais;
+    private List<Usuario> usuario;
+    private List<Publicaciones> publicaciones;
+
 }
