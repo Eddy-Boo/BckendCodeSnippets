@@ -12,6 +12,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
  *
  * @author brhyant
  */
-public interface PersonaReposotory extends MongoRepository< Persona, String>{
+public interface PersonaRepository extends MongoRepository< Persona, String>{
     
 }
