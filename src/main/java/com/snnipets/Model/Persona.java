@@ -18,5 +18,6 @@ public class Persona {
     private String nombre;
     private String apellido;
     private String edad;
-    private String email;
+    private String email;   
+    private String pais;
 }
