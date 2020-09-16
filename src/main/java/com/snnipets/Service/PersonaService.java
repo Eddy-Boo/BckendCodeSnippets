@@ -5,10 +5,13 @@
  */
 package com.snnipets.Service;
 
+import org.springframework.stereotype.Service;
+
 /**
  *
  * @author brhyant
  */
+@Service
 public class PersonaService {
     
 }
