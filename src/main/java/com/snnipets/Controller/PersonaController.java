@@ -10,13 +10,12 @@ import com.snnipets.Service.PersonaService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -40,4 +39,17 @@ public class PersonaController {
         return personaService.listarPersonas();
     }
     
+
+    @RequestMapping(value = "/InsertarPublicacionByCedula", method = RequestMethod.PUT)
+    public Persona anadirPublicacionPersona(String cedula, String codigo, String descripcion, String IDE,String lenguaje) {
+		return personaService.anadirPublicacionPersona(cedula, codigo, descripcion, IDE, lenguaje);
+	}
+    
+    
+    @GetMapping(path = "/listbyCodigo", produces = "application/json")
+    public List<Persona> listarPersonasbylenguaje(String Lenguaje) {
+        return personaService.listarPersonasbyLenguaje(Lenguaje);
     }
+    
+   
+}

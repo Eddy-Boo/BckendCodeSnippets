@@ -19,10 +19,12 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class PersonaService {
-      @Autowired
-    private PersonaRepository personaRepository;
+
 
       //CREAR UNA NUEVA PERSONA
+    @Autowired
+    private PersonaRepository personaRepository;
+
     public Persona crearPersona(Persona per) {
         return personaRepository.save(per);
     }
@@ -31,7 +33,29 @@ public class PersonaService {
     public List<Persona> listarPersonas() {
         return personaRepository.findAll();
     }
-    
-    //BUSCAR PERSONA POR CORREO PARA ACTUALIZAR
-  
+
+   
+
+    //Añadir publicaciones a una persona por cedula
+    public Persona anadirPublicacionPersona(String cedula, String codigo, String descripcion, String IDE, String lenguaje) {
+        Persona obj = personaRepository.findByCedula(cedula);//Consultamos por cedula
+        Publicaciones publicacion = new Publicaciones();//Instanciar la publicacion, se usará para setear los datos de la nueva publicacion
+        Categorias categoria = new Categorias();
+        publicacion.setCodigo(codigo);//Setea titulo
+        publicacion.setDescripcion(descripcion);//Setea contenido
+        categoria.setLenguajeProgra(lenguaje);
+        categoria.setIDE(IDE);
+//        publicacion.getCategotias().get(0).setLenguajeProgra(lenguaje);
+//        publicacion.getCategotias().get(0).setIDE(IDE);
+        obj.getPublicaciones().add(publicacion);
+        obj.getPublicaciones().get(0).getCategotias().add(categoria);
+
+        personaRepository.save(obj);
+        return obj;
+    }
+      public List<Persona> listarPersonasbyLenguaje(String Lenguaje) {
+        return personaRepository.buscarbyLenguaje(Lenguaje);
+    }
+      
+      
 }

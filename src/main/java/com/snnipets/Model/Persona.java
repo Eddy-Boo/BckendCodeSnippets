@@ -17,6 +17,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Data
 @Document
 public class Persona {
+    @Id
+    private long id;
+    private String cedula;
     private String nombre;
     private String apellido;
     private String edad;
@@ -24,5 +27,6 @@ public class Persona {
     private String pais;
     private List<Usuario> usuario;
     private List<Publicaciones> publicaciones;
+    
 
 }
