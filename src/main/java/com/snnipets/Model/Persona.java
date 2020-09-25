@@ -7,6 +7,7 @@ package com.snnipets.Model;
 
 import java.util.List;
 import lombok.Data;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 /**

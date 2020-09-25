@@ -15,5 +15,6 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface PersonaRepository extends MongoRepository< Persona, String>{
+    //BUSCAR POR USUARIO
     
 }
