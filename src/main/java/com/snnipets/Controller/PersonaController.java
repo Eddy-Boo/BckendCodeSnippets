@@ -6,6 +6,7 @@
 package com.snnipets.Controller;
 
 import com.snnipets.Model.Persona;
+import com.snnipets.Model.Publicaciones;
 import com.snnipets.Service.PersonaService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,10 +47,18 @@ public class PersonaController {
 	}
     
     
-    @GetMapping(path = "/listbyCodigo", produces = "application/json")
+    @GetMapping(path = "/listbyLenguaje", produces = "application/json")
     public List<Persona> listarPersonasbylenguaje(String Lenguaje) {
         return personaService.listarPersonasbyLenguaje(Lenguaje);
     }
     
+     @GetMapping(path = "/likebyCodigo", produces = "application/json")
+    public List<Persona> likeByCodigo(String codigo) {
+        return personaService.likeCodigo(codigo);
+    }
    
+     @GetMapping(path = "/likebyDescripcion", produces = "application/json")
+    public List<Persona> likeByDescripcion(String descripcion) {
+        return personaService.likeDescripcion(descripcion);
+    }
 }

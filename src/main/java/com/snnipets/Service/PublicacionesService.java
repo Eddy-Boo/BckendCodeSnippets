@@ -20,9 +20,9 @@ public class PublicacionesService {
       @Autowired
       private PublicacionesRepository publicacionrepository;
       
-      public List<Publicaciones>ListarPublicacionesbyCategoria(String lenguajeProgra ){
-          return publicacionrepository.findByCodigo(lenguajeProgra);
-          
-      }
+//      public List<Publicaciones>ListarPublicacionesbyCategoria(String lenguajeProgra ){
+//          return publicacionrepository.findByCodigo(lenguajeProgra);
+//          
+//      }
     
 }

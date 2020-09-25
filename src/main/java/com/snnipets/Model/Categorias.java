@@ -16,5 +16,5 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document
 public class Categorias {
      private String lenguajeProgra;
-    private String ide;
+    private String IDE;
 }

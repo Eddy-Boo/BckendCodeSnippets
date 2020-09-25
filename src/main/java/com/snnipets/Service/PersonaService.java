@@ -57,5 +57,11 @@ public class PersonaService {
         return personaRepository.buscarbyLenguaje(Lenguaje);
     }
       
+      public List<Persona> likeCodigo(String codigo){
+          return personaRepository.buscarbyCodigo(codigo);
+      }
       
+      public List<Persona> likeDescripcion(String descripcion){
+          return personaRepository.buscarbyDescripcion(descripcion);
+      }
 }

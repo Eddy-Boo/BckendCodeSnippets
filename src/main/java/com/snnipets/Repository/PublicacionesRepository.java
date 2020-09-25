@@ -18,7 +18,6 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface PublicacionesRepository extends MongoRepository< Publicaciones, String>{
-       List <Publicaciones> findByCodigo(String codigo);
-       
     
+      
 }
