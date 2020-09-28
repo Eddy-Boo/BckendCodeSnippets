@@ -34,6 +34,8 @@ public class PersonaService {
     public List<Persona> listarPersonas() {
         return personaRepository.findAll();
     }
+    
+   
 
     //Añadir publicaciones a una persona por cedula
     public Persona anadirPublicacionPersona(String usuario, String codigo, String descripcion, String IDE, String lenguaje, String fecha) {
