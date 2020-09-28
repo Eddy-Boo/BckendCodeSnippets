@@ -5,7 +5,7 @@
  */
 package com.snnipets.Service;
 
-import com.snnipets.Model.Categorias;
+
 import com.snnipets.Model.Persona;
 import com.snnipets.Model.Publicaciones;
 import com.snnipets.Model.Usuario;
@@ -39,7 +39,6 @@ public class PersonaService {
     public Persona anadirPublicacionPersona(String usuario, String codigo, String descripcion, String IDE, String lenguaje) {
         Persona obj = personaRepository.buscarbyUsuario(usuario);//Consultamos por usuario
         Publicaciones publicacion = new Publicaciones();//Instanciar la publicacion, se usará para setear los datos de la nueva publicacion
-        Categorias categoria = new Categorias();
         publicacion.setCodigo(codigo);//Setea titulo
         publicacion.setDescripcion(descripcion);//Setea contenido
         publicacion.setLenguajeProgra(lenguaje);
