@@ -8,6 +8,7 @@ package com.snnipets.Service;
 import com.snnipets.Model.Categorias;
 import com.snnipets.Model.Persona;
 import com.snnipets.Model.Publicaciones;
+import com.snnipets.Model.Usuario;
 import com.snnipets.Repository.PersonaRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,11 +21,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class PersonaService {
 
-
-      //CREAR UNA NUEVA PERSONA
+  
     @Autowired
     private PersonaRepository personaRepository;
 
+      //CREAR UNA NUEVA PERSONA
     public Persona crearPersona(Persona per) {
         return personaRepository.save(per);
     }
@@ -34,8 +35,6 @@ public class PersonaService {
         return personaRepository.findAll();
     }
 
-   
-
     //Añadir publicaciones a una persona por cedula
     public Persona anadirPublicacionPersona(String cedula, String codigo, String descripcion, String IDE, String lenguaje) {
         Persona obj = personaRepository.findByCedula(cedula);//Consultamos por cedula
@@ -43,25 +42,42 @@ public class PersonaService {
         Categorias categoria = new Categorias();
         publicacion.setCodigo(codigo);//Setea titulo
         publicacion.setDescripcion(descripcion);//Setea contenido
-        categoria.setLenguajeProgra(lenguaje);
-        categoria.setIDE(IDE);
+        publicacion.setLenguajeProgra(lenguaje);
+        publicacion.setIDE(IDE);
 //        publicacion.getCategotias().get(0).setLenguajeProgra(lenguaje);
 //        publicacion.getCategotias().get(0).setIDE(IDE);
         obj.getPublicaciones().add(publicacion);
-        obj.getPublicaciones().get(0).getCategotias().add(categoria);
+        //  obj.getPublicaciones().get(0).getCategotias().add(categoria);
 
         personaRepository.save(obj);
         return obj;
     }
-      public List<Persona> listarPersonasbyLenguaje(String Lenguaje) {
+
+    public Persona AñadirUsuario(String cedula, String Usuario, String contraseña) {
+        Persona obj = personaRepository.findByCedula(cedula);
+        Usuario usuario = new Usuario();
+        usuario.setUsuario(Usuario);
+        usuario.setContraseña(contraseña);
+
+        obj.getUsuario().add(usuario);
+        personaRepository.save(obj);
+        return obj;
+    }
+
+    public List<Persona> listarPersonasbyLenguaje(String Lenguaje) {
         return personaRepository.buscarbyLenguaje(Lenguaje);
     }
-      
-      public List<Persona> likeCodigo(String codigo){
-          return personaRepository.buscarbyCodigo(codigo);
-      }
-      
-      public List<Persona> likeDescripcion(String descripcion){
-          return personaRepository.buscarbyDescripcion(descripcion);
-      }
+
+    public List<Persona> likeCodigo(String codigo) {
+        return personaRepository.buscarbyCodigo(codigo);
+    }
+
+    public List<Persona> likeDescripcion(String descripcion) {
+        return personaRepository.buscarbyDescripcion(descripcion);
+    }
+    // Filtrar el max id
+
+    public Long buscarIdMax() {
+        return personaRepository.findMaxId().get(0).getId();
+    }
 }

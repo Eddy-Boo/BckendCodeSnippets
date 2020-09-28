@@ -29,4 +29,8 @@ public interface PersonaRepository extends MongoRepository< Persona, String>{
        @Query(value = "{'publicaciones.0.Descripcion':{$regex:\".*?0.*\", $options:\"i\"}}")
       List<Persona>buscarbyDescripcion(String Cdescripcion);
       
+      // Filtrar el max id de la persona
+	@Query(value = "{}", sort = "{ _id : -1 }")
+	List <Persona> findMaxId();
+      
 }

@@ -18,5 +18,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Publicaciones {
     private String codigo;
     private String Descripcion;
-    private List<Categorias> categotias;
+    private String lenguajeProgra;
+    private String IDE;
 }

@@ -5,10 +5,19 @@
  */
 package com.snnipets.Controller;
 
+
 /**
  *
  * @author edy
  */
+//@RestController
+//@RequestMapping("/usaurio")
 public class UsuarioController {
-    
+//     @Autowired
+//     UsuarioService usuarioservice;
+//     
+//    @RequestMapping(value = "/InsertarUsuario", method = RequestMethod.PUT)
+//    public Persona anadirUsuario(String cedula, String usuario, String contraseña) {
+//		return usuarioservice.AñadirUsuario(cedula, usuario, contraseña);
+//	}
 }

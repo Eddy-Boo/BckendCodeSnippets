@@ -23,8 +23,5 @@ public class CategoriasController {
       @Autowired
       PublicacionesService publicacionservice;
       
-       @GetMapping(path = "/list", produces = "application/json")
-       public List<Publicaciones> listarbytipodelenguaje(String Lenguaje){
-           return publicacionservice.ListarPublicacionesbyCategoria(Lenguaje);
-       }
+     
 }   
