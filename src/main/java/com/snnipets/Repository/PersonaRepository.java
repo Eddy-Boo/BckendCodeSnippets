@@ -18,8 +18,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface PersonaRepository extends MongoRepository< Persona, String>{
     //BUSCAR POR USUARIO
-//     @Query(value = "{'usuario.usuario':?0}")
-//      Persona buscarbyUsuario(String usuario);
+     @Query(value = "{'usuario.0.usuario':?0}")
+      Persona buscarbyUsuario(String usuario);
     
       @Query(value = "{'publicaciones.0.lenguajeProgra':?0}")
       List<Persona>buscarbyLenguaje(String lenguaje);

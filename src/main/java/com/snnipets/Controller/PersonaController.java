@@ -6,8 +6,8 @@
 package com.snnipets.Controller;
 
 import com.snnipets.Model.Persona;
-import com.snnipets.Model.Publicaciones;
 import com.snnipets.Service.PersonaService;
+import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -43,8 +43,8 @@ public class PersonaController {
     }
 
     @RequestMapping(value = "/InsertarPublicacionByUsuario", method = RequestMethod.PUT)
-    public Persona anadirPublicacionPersona(String usuario, String codigo, String descripcion, String IDE, String lenguaje) {
-        return personaService.anadirPublicacionPersona(usuario, codigo, descripcion, IDE, lenguaje);
+    public Persona anadirPublicacionPersona(String usuario, String codigo, String descripcion, String IDE, String lenguaje, String fecha) {
+        return personaService.anadirPublicacionPersona(usuario, codigo, descripcion, IDE, lenguaje, fecha);
     }
 
 

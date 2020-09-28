@@ -5,6 +5,7 @@
  */
 package com.snnipets.Model;
 
+import java.util.Date;
 import java.util.List;
 import lombok.Data;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -20,4 +21,5 @@ public class Publicaciones {
     private String Descripcion;
     private String lenguajeProgra;
     private String IDE;
+    private String fecha;
 }

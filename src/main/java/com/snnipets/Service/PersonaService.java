@@ -8,8 +8,8 @@ package com.snnipets.Service;
 
 import com.snnipets.Model.Persona;
 import com.snnipets.Model.Publicaciones;
-import com.snnipets.Model.Usuario;
 import com.snnipets.Repository.PersonaRepository;
+import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,32 +36,19 @@ public class PersonaService {
     }
 
     //Añadir publicaciones a una persona por cedula
-    public Persona anadirPublicacionPersona(String usuario, String codigo, String descripcion, String IDE, String lenguaje) {
+    public Persona anadirPublicacionPersona(String usuario, String codigo, String descripcion, String IDE, String lenguaje, String fecha) {
         Persona obj = personaRepository.buscarbyUsuario(usuario);//Consultamos por usuario
         Publicaciones publicacion = new Publicaciones();//Instanciar la publicacion, se usará para setear los datos de la nueva publicacion
         publicacion.setCodigo(codigo);//Setea titulo
         publicacion.setDescripcion(descripcion);//Setea contenido
         publicacion.setLenguajeProgra(lenguaje);
         publicacion.setIDE(IDE);
-//        publicacion.getCategotias().get(0).setLenguajeProgra(lenguaje);
-//        publicacion.getCategotias().get(0).setIDE(IDE);
+        publicacion.setFecha(fecha);
         obj.getPublicaciones().add(publicacion);
-        //  obj.getPublicaciones().get(0).getCategotias().add(categoria);
-
+    
         personaRepository.save(obj);
         return obj;
     }
-
-//    public Persona AñadirUsuario(String cedula, String Usuario, String contraseña) {
-//        Persona obj = personaRepository.buscarbyUsuario(Usuario);
-//        Usuario usuario = new Usuario();
-//        usuario.setUsuario(Usuario);
-//        usuario.setContraseña(contraseña);
-//
-//        obj.getUsuario().add(usuario);
-//        personaRepository.save(obj);
-//        return obj;
-//    }
 
     public List<Persona> listarPersonasbyLenguaje(String Lenguaje) {
         return personaRepository.buscarbyLenguaje(Lenguaje);

@@ -24,6 +24,7 @@ public class Persona {
     private String edad;
     private String email;   
     private String pais;
+    private String foto;
     private List<Usuario> usuario;
     private List<Publicaciones> publicaciones;
     
