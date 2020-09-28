@@ -20,8 +20,10 @@ public interface PersonaRepository extends MongoRepository< Persona, String>{
     //BUSCAR POR USUARIO
     Persona findByCedula(String cedula);
     
-      @Query(value = "{'publicaciones.0.categotias.lenguajeProgra':?0}")
+      @Query(value = "{'publicaciones.0.lenguajeProgra':?0}")
       List<Persona>buscarbyLenguaje(String lenguaje);
+      
+      //{'usuario.0.usuario':'Eddy2'} consulta del metodo buscar por usuario
       
       @Query(value = "{'publicaciones.0.codigo':{$regex:\".*?0.*\", $options:\"i\"}}")
       List<Persona>buscarbyCodigo(String Codigo);
