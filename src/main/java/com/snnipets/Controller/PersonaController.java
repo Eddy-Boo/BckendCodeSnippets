@@ -42,9 +42,9 @@ public class PersonaController {
         return personaService.listarPersonas();
     }
 
-    @RequestMapping(value = "/InsertarPublicacionByCedula", method = RequestMethod.PUT)
-    public Persona anadirPublicacionPersona(String cedula, String codigo, String descripcion, String IDE, String lenguaje) {
-        return personaService.anadirPublicacionPersona(cedula, codigo, descripcion, IDE, lenguaje);
+    @RequestMapping(value = "/InsertarPublicacionByUsuario", method = RequestMethod.PUT)
+    public Persona anadirPublicacionPersona(String usuario, String codigo, String descripcion, String IDE, String lenguaje) {
+        return personaService.anadirPublicacionPersona(usuario, codigo, descripcion, IDE, lenguaje);
     }
 
 

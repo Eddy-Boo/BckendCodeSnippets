@@ -36,8 +36,8 @@ public class PersonaService {
     }
 
     //Añadir publicaciones a una persona por cedula
-    public Persona anadirPublicacionPersona(String cedula, String codigo, String descripcion, String IDE, String lenguaje) {
-        Persona obj = personaRepository.findByCedula(cedula);//Consultamos por cedula
+    public Persona anadirPublicacionPersona(String usuario, String codigo, String descripcion, String IDE, String lenguaje) {
+        Persona obj = personaRepository.buscarbyUsuario(usuario);//Consultamos por usuario
         Publicaciones publicacion = new Publicaciones();//Instanciar la publicacion, se usará para setear los datos de la nueva publicacion
         Categorias categoria = new Categorias();
         publicacion.setCodigo(codigo);//Setea titulo
@@ -53,16 +53,16 @@ public class PersonaService {
         return obj;
     }
 
-    public Persona AñadirUsuario(String cedula, String Usuario, String contraseña) {
-        Persona obj = personaRepository.findByCedula(cedula);
-        Usuario usuario = new Usuario();
-        usuario.setUsuario(Usuario);
-        usuario.setContraseña(contraseña);
-
-        obj.getUsuario().add(usuario);
-        personaRepository.save(obj);
-        return obj;
-    }
+//    public Persona AñadirUsuario(String cedula, String Usuario, String contraseña) {
+//        Persona obj = personaRepository.buscarbyUsuario(Usuario);
+//        Usuario usuario = new Usuario();
+//        usuario.setUsuario(Usuario);
+//        usuario.setContraseña(contraseña);
+//
+//        obj.getUsuario().add(usuario);
+//        personaRepository.save(obj);
+//        return obj;
+//    }
 
     public List<Persona> listarPersonasbyLenguaje(String Lenguaje) {
         return personaRepository.buscarbyLenguaje(Lenguaje);

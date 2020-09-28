@@ -19,7 +19,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Persona {
     @Id
     private long id;
-    private String cedula;
     private String nombre;
     private String apellido;
     private String edad;
