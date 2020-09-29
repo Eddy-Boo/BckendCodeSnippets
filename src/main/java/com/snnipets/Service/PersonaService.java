@@ -67,7 +67,7 @@ public class PersonaService {
 
     public Persona comporbarUsuario(String usuario, String contraseña) {
         Persona obj = personaRepository.ComporbarUsuario(usuario, contraseña);
-        if (obj.getUsuario().get(0).getUsuario().equals(usuario) && obj.getUsuario().get(0).getContraseña().equals(contraseña)) {
+        if (obj.getUsuario().get(0).getUsuario().equals(usuario) && obj.getUsuario().get(0).getContrasenia().equals(contraseña)) {
             return obj;
         } else {
 

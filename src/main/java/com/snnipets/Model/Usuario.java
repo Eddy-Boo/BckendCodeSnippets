@@ -18,5 +18,5 @@ import org.springframework.data.mongodb.core.index.Indexed;
 public class Usuario {
   @Indexed(unique=true)
   private String usuario;
-  private String contraseña;  
+  private String contrasenia;  
 }
