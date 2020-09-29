@@ -35,5 +35,8 @@ public interface PersonaRepository extends MongoRepository< Persona, String>{
       // Filtrar el max id de la persona
 	@Query(value = "{}", sort = "{ _id : -1 }")
 	List <Persona> findMaxId();
+        
+       @Query(value = "{$and: [{'usuario.0.usuario': ?0}, { 'usuario.0.contraseña' : ?1}]}")
+       Persona ComporbarUsuario(String usuario, String contraseña);
       
 }

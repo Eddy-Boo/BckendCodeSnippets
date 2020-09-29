@@ -7,6 +7,7 @@ package com.snnipets.Model;
 
 import lombok.Data;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.index.Indexed;
 
 /**
  *
@@ -15,6 +16,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Data
 @Document
 public class Usuario {
+  @Indexed(unique=true)
   private String usuario;
   private String contraseña;  
 }

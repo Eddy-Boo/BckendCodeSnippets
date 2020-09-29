@@ -68,4 +68,9 @@ public class PersonaController {
     public Long findMaxIdPersona() {
         return personaService.buscarIdMax();
     }
+    
+    @GetMapping(path = "/Comprobarlogueo", produces = "application/json")
+    public Persona ComprobarLogueo(String usuario, String Contraseña) {
+        return personaService.comporbarUsuario(usuario, Contraseña);
+    }
 }

@@ -5,7 +5,6 @@
  */
 package com.snnipets.Service;
 
-
 import com.snnipets.Model.Persona;
 import com.snnipets.Model.Publicaciones;
 import com.snnipets.Repository.PersonaRepository;
@@ -21,11 +20,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class PersonaService {
 
-  
     @Autowired
     private PersonaRepository personaRepository;
 
-      //CREAR UNA NUEVA PERSONA
+    //CREAR UNA NUEVA PERSONA
     public Persona crearPersona(Persona per) {
         return personaRepository.save(per);
     }
@@ -34,20 +32,18 @@ public class PersonaService {
     public List<Persona> listarPersonas() {
         return personaRepository.findAll();
     }
-    
-   
 
-    //Añadir publicaciones a una persona por cedula
+    //Añadir publicaciones a una persona por usuario
     public Persona anadirPublicacionPersona(String usuario, String codigo, String descripcion, String IDE, String lenguaje, String fecha) {
         Persona obj = personaRepository.buscarbyUsuario(usuario);//Consultamos por usuario
         Publicaciones publicacion = new Publicaciones();//Instanciar la publicacion, se usará para setear los datos de la nueva publicacion
-        publicacion.setCodigo(codigo);//Setea titulo
-        publicacion.setDescripcion(descripcion);//Setea contenido
+        publicacion.setCodigo(codigo);//Setea Codigo
+        publicacion.setDescripcion(descripcion);//Setea Descripcion
         publicacion.setLenguajeProgra(lenguaje);
         publicacion.setIDE(IDE);
         publicacion.setFecha(fecha);
         obj.getPublicaciones().add(publicacion);
-    
+
         personaRepository.save(obj);
         return obj;
     }
@@ -67,5 +63,15 @@ public class PersonaService {
 
     public Long buscarIdMax() {
         return personaRepository.findMaxId().get(0).getId();
+    }
+
+    public Persona comporbarUsuario(String usuario, String contraseña) {
+        Persona obj = personaRepository.ComporbarUsuario(usuario, contraseña);
+        if (obj.getUsuario().get(0).getUsuario().equals(usuario) && obj.getUsuario().get(0).getContraseña().equals(contraseña)) {
+            return obj;
+        } else {
+
+        }
+        return obj;
     }
 }
