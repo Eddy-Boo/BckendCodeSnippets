@@ -26,15 +26,15 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/persona")
+@CrossOrigin(origins = "*")
 public class PersonaController {
 
     @Autowired
     PersonaService personaService;
 
     @PostMapping
-    public ResponseEntity<String> guardarPersona(@RequestBody Persona persona) {
-        personaService.crearPersona(persona);
-        return ResponseEntity.ok("OK");
+    public Persona guardarPersona(@RequestBody Persona persona) {
+        return personaService.crearPersona(persona);
     }
 
     @GetMapping(path = "/list", produces = "application/json")
