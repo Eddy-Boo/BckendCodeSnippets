@@ -43,8 +43,8 @@ public class PersonaController {
     }
 
     @RequestMapping(value = "/InsertarPublicacionByUsuario", method = RequestMethod.PUT)
-    public Persona anadirPublicacionPersona(String usuario, String codigo, String descripcion, String IDE, String lenguaje, String fecha) {
-        return personaService.anadirPublicacionPersona(usuario, codigo, descripcion, IDE, lenguaje, fecha);
+    public Persona anadirPublicacionPersona(String usuario, String titulo,String codigo, String descripcion, String IDE, String lenguaje, String fecha) {
+        return personaService.anadirPublicacionPersona(usuario,titulo,codigo, descripcion, IDE, lenguaje, fecha);
     }
 
 

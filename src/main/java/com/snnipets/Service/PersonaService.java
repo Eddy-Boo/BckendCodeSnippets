@@ -34,9 +34,10 @@ public class PersonaService {
     }
 
     //Añadir publicaciones a una persona por usuario
-    public Persona anadirPublicacionPersona(String usuario, String codigo, String descripcion, String IDE, String lenguaje, String fecha) {
+    public Persona anadirPublicacionPersona(String usuario,String titulo, String codigo, String descripcion, String IDE, String lenguaje, String fecha) {
         Persona obj = personaRepository.buscarbyUsuario(usuario);//Consultamos por usuario
         Publicaciones publicacion = new Publicaciones();//Instanciar la publicacion, se usará para setear los datos de la nueva publicacion
+        publicacion.setTitulo(titulo);
         publicacion.setCodigo(codigo);//Setea Codigo
         publicacion.setDescripcion(descripcion);//Setea Descripcion
         publicacion.setLenguajeProgra(lenguaje);
