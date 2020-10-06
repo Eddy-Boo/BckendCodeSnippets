@@ -10,6 +10,7 @@ import com.snnipets.Model.Publicaciones;
 import com.snnipets.Repository.PersonaRepository;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,13 +29,15 @@ public class PersonaService {
         return personaRepository.save(per);
     }
 
+    
+
     //LISTAR PERSONA
     public List<Persona> listarPersonas() {
         return personaRepository.findAll();
     }
 
     //Añadir publicaciones a una persona por usuario
-    public Persona anadirPublicacionPersona(String usuario,String titulo, String codigo, String descripcion, String IDE, String lenguaje, String fecha) {
+    public Persona anadirPublicacionPersona(String usuario, String titulo, String codigo, String descripcion, String IDE, String lenguaje, String fecha) {
         Persona obj = personaRepository.buscarbyUsuario(usuario);//Consultamos por usuario
         Publicaciones publicacion = new Publicaciones();//Instanciar la publicacion, se usará para setear los datos de la nueva publicacion
         publicacion.setTitulo(titulo);
@@ -75,4 +78,14 @@ public class PersonaService {
         }
         return obj;
     }
+
+    public List<Persona> verUsuario(String usuario) {
+        return personaRepository.VerUsuario(usuario);
+
+    }
+
+    public Persona editarUsuario(String usuario) {
+        return personaRepository.buscarbyUsuario(usuario);
+    }
+
 }

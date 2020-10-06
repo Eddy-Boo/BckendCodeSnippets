@@ -5,6 +5,7 @@
  */
 package com.snnipets.Controller;
 
+
 import com.snnipets.Model.Persona;
 import com.snnipets.Service.PersonaService;
 import java.util.Date;
@@ -73,4 +74,11 @@ public class PersonaController {
     public Persona ComprobarLogueo(String usuario, String Contraseña) {
         return personaService.comporbarUsuario(usuario, Contraseña);
     }
+    
+     @GetMapping(path = "/VerUsuario", produces = "application/json")
+    public List <Persona> Verusuario(String usuario) {
+        return personaService.verUsuario(usuario);
+    }
+    
+    
 }
