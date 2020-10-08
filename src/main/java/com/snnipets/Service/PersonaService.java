@@ -7,6 +7,7 @@ package com.snnipets.Service;
 
 import com.snnipets.Model.Persona;
 import com.snnipets.Model.Publicaciones;
+import com.snnipets.Model.Usuario;
 import com.snnipets.Repository.PersonaRepository;
 import java.util.Date;
 import java.util.List;
@@ -84,7 +85,19 @@ public class PersonaService {
 
     }
 
-    public Persona editarUsuario(String usuario) {
+    public Persona editarUsuario(String usuario, String nombre,String apellido, String edad, String email, String pais, String foto) {
+      Persona obj = personaRepository.buscarbyUsuario(usuario);
+      Usuario objuser = new Usuario();
+      obj.setNombre(nombre);
+      obj.setApellido(apellido);
+      obj.setEdad(edad);
+      obj.setPais(pais);
+      obj.setFoto(foto);
+      personaRepository.save(obj);
+      return obj;
+    }
+    
+    public Persona cargarUsuario(String usuario){
         return personaRepository.buscarbyUsuario(usuario);
     }
 

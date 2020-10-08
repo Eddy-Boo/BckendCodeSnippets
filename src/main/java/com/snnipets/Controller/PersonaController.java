@@ -80,5 +80,15 @@ public class PersonaController {
         return personaService.verUsuario(usuario);
     }
     
+     @RequestMapping(value = "/EditarUsuario", method = RequestMethod.PUT)
+      public Persona editarUsuario(String usuario, String nombre,String apellido, String edad, String email, String pais, String foto){
+          return personaService.editarUsuario(usuario, nombre, apellido, edad, email, pais, foto);
+      }
+      
+      @GetMapping(path = "/VerUsuarioEditar", produces = "application/json")
+    public Persona CargarUsuario(String usuario) {
+        return personaService.cargarUsuario(usuario);
+    } 
+    
     
 }
