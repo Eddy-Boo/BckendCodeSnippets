@@ -25,7 +25,7 @@ public interface PersonaRepository extends MongoRepository< Persona, String>{
          @Query(value = "{'usuario.0.usuario':?0}")
       List <Persona> VerUsuario(String usuario);
     
-      @Query(value = "{'publicaciones.0.lenguajeProgra':?0}")
+      @Query(value = "{'publicaciones.lenguajeProgra':?0}")
       List<Persona>buscarbyLenguaje(String lenguaje);
       
       //{'usuario.0.usuario':'Eddy2'} consulta del metodo buscar por usuario
@@ -33,7 +33,7 @@ public interface PersonaRepository extends MongoRepository< Persona, String>{
       @Query(value = "{'publicaciones.0.codigo':{$regex:\".*?0.*\", $options:\"i\"}}")
       List<Persona>buscarbyCodigo(String Codigo);
       
-       @Query(value = "{'publicaciones.0.Descripcion':{$regex:\".*?0.*\", $options:\"i\"}}")
+       @Query(value = "{'publicaciones.Descripcion':{$regex:\".*?0.*\", $options:\"i\"}}")
       List<Persona>buscarbyDescripcion(String Cdescripcion);
       
       // Filtrar el max id de la persona

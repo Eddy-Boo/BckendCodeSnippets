@@ -9,11 +9,12 @@ import com.snnipets.Model.Persona;
 import com.snnipets.Model.Publicaciones;
 import com.snnipets.Model.Usuario;
 import com.snnipets.Repository.PersonaRepository;
-import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 /**
  *
@@ -29,8 +30,6 @@ public class PersonaService {
     public Persona crearPersona(Persona per) {
         return personaRepository.save(per);
     }
-
-    
 
     //LISTAR PERSONA
     public List<Persona> listarPersonas() {
@@ -85,20 +84,25 @@ public class PersonaService {
 
     }
 
-    public Persona editarUsuario(String usuario, String nombre,String apellido, String edad, String email, String pais, String foto) {
-      Persona obj = personaRepository.buscarbyUsuario(usuario);
-      Usuario objuser = new Usuario();
-      obj.setNombre(nombre);
-      obj.setApellido(apellido);
-      obj.setEdad(edad);
-      obj.setPais(pais);
-      obj.setFoto(foto);
-      personaRepository.save(obj);
-      return obj;
+    public Persona editarUsuario(String usuario, String nombre, String apellido, String edad, String email, String pais, String foto) {
+        Persona obj = personaRepository.buscarbyUsuario(usuario);
+        Usuario objuser = new Usuario();
+        obj.setNombre(nombre);
+        obj.setApellido(apellido);
+        obj.setEdad(edad);
+        obj.setPais(pais);
+        obj.setFoto(foto);
+        personaRepository.save(obj);
+        return obj;
     }
-    
-    public Persona cargarUsuario(String usuario){
+
+    public Persona cargarUsuario(String usuario) {
         return personaRepository.buscarbyUsuario(usuario);
+    }
+
+    public ResponseEntity<String> deletePublicaciones(@PathVariable("id") String id) {
+        personaRepository.deleteById(id);
+        return ResponseEntity.ok("OK");
     }
 
 }
